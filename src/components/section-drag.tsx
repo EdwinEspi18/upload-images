@@ -19,7 +19,9 @@ export default function SectionDrag() {
     const files = e.target.files;
     const data = new FormData();
 
-    data.append("file", files![0]);
+    if (files && files.length) {
+      data.append("file", files[0]);
+    }
     data.append("upload_preset", "mmovwkqz");
     data.append("cloud_name", "dmzzbple8");
 
@@ -48,7 +50,7 @@ export default function SectionDrag() {
 
   return (
     <section className="h-[44rem] w-full rounded-md px-24 py-12">
-      {file !== null && !loading ? (
+      {file !== "" && !loading ? (
         <div className="mx-auto h-full w-full rounded-md p-2 shadow-md xl:w-1/2 dark:bg-[#212936]">
           <img
             alt="aa"
