@@ -3,7 +3,7 @@ import {ChangeEvent, useState} from "react";
 import SpinnerLoader from "./spinner-loading";
 
 export default function SectionDrag() {
-  const [file, setFile] = useState<string | ArrayBuffer | null>(null);
+  const [file, setFile] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [imageUrl, setImageUrl] = useState<string>("");
 
@@ -19,7 +19,7 @@ export default function SectionDrag() {
     const files = e.target.files;
     const data = new FormData();
 
-    data.append("file", files[0]);
+    data.append("file", files![0]);
     data.append("upload_preset", "mmovwkqz");
     data.append("cloud_name", "dmzzbple8");
 
@@ -41,7 +41,7 @@ export default function SectionDrag() {
 
       fr.onload = function () {
         setLoading(false);
-        setFile(fr.result);
+        setFile(fr.result as string);
       };
     }
   }

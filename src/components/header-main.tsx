@@ -1,7 +1,5 @@
 import {useState} from "react";
 
-import Logo from "./Logo";
-
 export function HeaderMain() {
   const [icon, setIcon] = useState("Moon");
 
